@@ -1,8 +1,10 @@
 $(() => {
   let score = 0;
-  let multiplier = 1;
   let mults = 0;
   let autos = 0;
+
+  let multiplier = 1;
+
   let autoCost = 100;
   let multCost = 10;
   let timeouts = [];
@@ -11,22 +13,34 @@ $(() => {
     "score": score,
     "multiplier": multiplier,
     "multipliers": autos,
-    "multcount": mults
+    "multcount": mults,
+    "timeouts": timeouts
   }));
 
-  let makeAuto = () => timeouts.push(setInterval(() => {
-    score += multiplier
-    redraw()
-  }, 1000))
+
+  let makeAuto = () => {
+    setInterval(() => {
+      score += multiplier
+      redraw()
+    }, 1000)
+    timeouts.push(new Date().getMilliseconds())
+  }
+
+
 
   let save = JSON.parse(window.localStorage.getItem("stored"));
+  console.log(save.timeouts)
   if (save != null) {
-    console.log(Object.keys(save));
     score = save.score;
     multiplier = save.multiplier;
     mults = save.multcount;
-    for (let x = 0; x < save.multipliers; x++) {
-      makeAuto()
+    while (autos < save.multipliers) {
+      let time = new Date().getMilliseconds();
+      if (save.timeouts.includes(time)) {
+        makeAuto()
+        autos++
+        save.timeouts.splice(save.timeouts.indexOf(time), 1)
+      }
     }
   }
 
@@ -48,7 +62,6 @@ $(() => {
 
   redraw();
 
-  $("#add").css("opacity", "1")
 
   $("#add").click(() => {
     score += multiplier;
