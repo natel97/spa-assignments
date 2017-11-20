@@ -29,7 +29,6 @@ $(() => {
 
 
   let save = JSON.parse(window.localStorage.getItem("stored"));
-  console.log(save.timeouts)
   if (save != null) {
     score = save.score;
     multiplier = save.multiplier;
