@@ -26,7 +26,13 @@ $(() => {
     timeouts.push(new Date().getMilliseconds())
   }
 
-
+  window.doAll = () => {
+  while(score > multCost){
+      multiplier *= 1.2
+      mults++;
+      score -= multCost;
+    }
+  }
 
   let save = JSON.parse(window.localStorage.getItem("stored"));
   if (save != null) {

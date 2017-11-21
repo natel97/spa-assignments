@@ -1,0 +1,90 @@
+.header {
+  background-color: pink;
+  font-size: 2em;
+  justify-content: space-around;
+}
+
+.left, .right {
+  flex-direction: column;
+}
+
+.footer {
+  background-color: gray;
+}
+
+.footer, .left, .right, .center, .button, #reset, #total {
+  justify-content: center;
+  align-items: center;
+}
+
+.left {
+  background-color: red;
+}
+
+.center {
+  background-color: green;
+  width: 960px;
+}
+
+.right {
+  background-color: blue;
+}
+
+.body {
+  align-items: stretch;
+  justify-content: center;
+  flex: 13;
+}
+
+body {
+  margin: 0;
+}
+
+div {
+  color: rgba(0, 0, 0, .78);
+}
+
+.app {
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.app, .body, .header, .footer, .button, .center, .left, .right, #reset, #total {
+  display: flex;
+}
+
+.left, .right, .app, .header, .footer {
+  flex: 1;
+}
+
+.button {
+  width: 150px;
+  height: 150px;
+  font-size: 3em;
+  background-color: white;
+  border-radius: 76px;
+  transition: background-color .3s, color .5s, transform .5s, translateY 1s;
+}
+
+.button:hover, #reset:hover {
+  background-color: purple;
+  transform: scale3d(1.1, 1.1, 5);
+  color: yellow;
+  user-select: none;
+  cursor: pointer;
+  transition: translateY 1s, background-color: .5s, transform .5s;
+}
+
+.button:active {
+  background-color: yellow;
+  transition: background-color .5s, translateY 2s;
+}
+
+#reset {
+  background-color: darkred;
+  border-radius: 10px;
+  color: rgb(20, 200, 200);
+  padding-left: 10px;
+  padding-right: 10px;
+  transition: background-color 1s, color 1s, transform 1s, translateY 1s;
+}

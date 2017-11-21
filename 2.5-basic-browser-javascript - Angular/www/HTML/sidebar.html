@@ -1,0 +1,9 @@
+<div class="button" ng-click='$ctrl.side ? $ctrl.game.addMultiplier() : $ctrl.increase()'>
+  +{{$ctrl.side ? "*1.2" : "1"}}
+</div>
+<p>
+  Cost: {{$ctrl.side ? $ctrl.game.multcost : $ctrl.game.autocost}}
+</p>
+<p>
+  {{$ctrl.name}}s: {{$ctrl.left ? $ctrl.game.mults : $ctrl.game.autos}}
+</p>

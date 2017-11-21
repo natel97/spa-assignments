@@ -1,8 +1,8 @@
 {
   "name": "SPA",
   "version": "1.0.0",
-  "description": "A happy project",
-  "main": "main.js",
+  "description": "A happy Angular project",
+  "main": "./www/JS/main.js",
   "scripts": {
     "build": "webpack",
     "start": "webpack-dashboard -- webpack-dev-server --hot"
